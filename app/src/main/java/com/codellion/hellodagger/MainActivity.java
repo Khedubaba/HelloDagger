@@ -3,9 +3,12 @@ package com.codellion.hellodagger;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Car car;
+    //injecting into fields
+    @Inject Car car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CarComponent carComponent = DaggerCarComponent.create();
+        carComponent.inject(this);
 
-        car = carComponent.getCar();
+        //injecting inside using method
+//        car = carComponent.getCar();
         car.drive();
     }
 }
