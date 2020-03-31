@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
         CarComponent carComponent = DaggerCarComponent.create();
         carComponent.inject(this);
 
-        //injecting inside using method
-//        car = carComponent.getCar();
         car.drive();
     }
 }
